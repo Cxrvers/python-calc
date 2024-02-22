@@ -9,7 +9,10 @@ class Calculator:
         return a * b
     
     def divide(self, a, b):
-        return a / b
+        try:
+            return a / b
+        except ZeroDivisionError:
+            return "Please try again cannot divide by zero"
     
 
 my_calculator = Calculator()
@@ -28,6 +31,8 @@ while True:
     elif choice in (1, 2, 3, 4):
         a = int(input("Enter first number: "))
         b = int(input("Enter second number: "))
+        if choice == 4 & b == 0:
+            b = int(input("Please enter another number cannot divide by 0: "))
 
         if choice == 1:
             print(a, '+', b, "=", my_calculator.add(a,b))
